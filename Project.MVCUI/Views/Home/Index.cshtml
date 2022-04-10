@@ -1,0 +1,53 @@
+﻿@model ContentVM  
+
+<div class="mt-2 ml-2 mr-2">
+
+    @foreach (Content item in Model.Contents)
+    {
+    <div class="rounded-lg border-2 border-blue-800 grid grid-row">
+
+
+        <label class="text-3xl font-extrabold text-amber-500 text-center">@item.Header</label>
+        <label class="text-amber-700">@item.Text</label>
+        <div class="flex flex-row">
+
+
+            <button id="btnLike" value="@item.ID" class="btnLike" href="">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+            </button>
+            <label class=" text-4xl text-blue-700">@item.Likes</label>
+        </div>
+        
+    </div>
+
+    }
+
+
+</div>
+
+<script>
+    $(function () {
+        $("#btnLike").click(function () {
+
+
+            $.ajax({
+
+                url: "https://localhost:44312/Home/Index",
+                type: "Post",
+                data: { like: $("#btnLike").val()},
+
+
+
+
+            })
+
+        })
+
+
+
+
+    })
+</script>
+

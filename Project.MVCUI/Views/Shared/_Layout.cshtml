@@ -1,0 +1,157 @@
+﻿@model ContentVM
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/x-icon" href="~/Images/FavIcon.ico.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .userIcon:hover .userIcon-Content {
+            display: block;
+        }
+
+        .userIcon-Content {
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <script>
+
+        tailwind.config = {
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        myorange: '#06b6d4',
+                        myblue: {
+                            100: '#0f172a',
+                            200: '#1e3a8a',
+                            300: '#9CC4E4',
+                            400: '#343838',
+                            500: '#00DFFC',
+                            600: '#005F6B'
+
+                        },
+
+                        mywhite: '#E9F2F9',
+
+                        myred: '#99173C',
+
+                        mygrey: {
+
+                            100: '#0f172a',
+                            200: '#1e293b',
+                        },
+
+                        myyellow: {
+
+                            100: '#06b6d4',
+                            200: '#22d3ee',
+                        }
+
+
+                    },
+
+                    fontFamily: {
+
+                        inter: ['Inter', 'sans-serif']
+
+
+                    },
+
+                    fontSize: {
+
+                        xs: '0.8125rem'
+
+
+                    },
+
+                    spacing: {
+
+                        '100': '36rem'
+                    }
+
+
+                }
+
+            }
+
+
+        }
+
+
+
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <header>
+        <div class="bg-slate-900 h-32 max-w-full flex flex-row justify-between" style="margin-top:-50px">
+
+                <div class="MainIcon flex flex-row place-self-center">
+                    <a href="/Home/Index">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 hover:stroke-slate-500" fill="none" viewBox="0 0 24 24" stroke="#cbd5e1" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </a>
+                    <label class=" mt-2 ml-0.5 text-3xl text-slate-300 ">MyBlog</label>
+                </div>
+
+
+
+                <div class="userIcon place-self-center mr-20 ">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" class=" h-12 w-12 hover:stroke-slate-500" fill="none" viewBox="0 0 24 24" stroke="#cbd5e1" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+
+                    @if (Session["user"] == null)
+                    {
+                        <div class="userIcon-Content text-slate-300 bg-slate-700 w-32 h-24 ">
+                            <a class="hover:text-slate-300" href="/AppUser/Login">User Login</a>
+
+                            <a class="hover:text-slate-300" href="/AppUser/Register">Register</a>
+                        </div>
+
+
+
+                    }
+
+            else
+            {
+                <div class="userIcon-Content text-slate-300 bg-slate-700 w-32 h-24 ">
+                    <a class="hover:text-slate-300" >@Model.AppUser.UserName</a>
+
+                    <a   class="hover:text-slate-300" href="AppUser/Logout">Exit</a>
+                </div>
+
+
+            }
+                </div>
+
+               
+
+            
+            
+        </div>
+    </header>
+    <section>
+        @RenderBody()
+    </section>
+   
+       
+        
+    
+
+   
+</body>
+</html>
