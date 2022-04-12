@@ -30,6 +30,20 @@ namespace Project.MVCUI.Controllers
             return RedirectToAction("EmailConfirm", "Mail");
         }
 
+        public ActionResult AdminActivation(Guid id)
+        { //mail activasyonu
+            AppUser willactive = _appUser.FirstOrDefault(x => x.ActivationCode == id);
+            if (willactive != null)
+            {
+                willactive.Role = Entities.Enums.UserRole.Admin;
+                _appUser.Update(willactive);
+                TempData["isAccountActive"] = "Your e-mail has been successfully confirmed";
+                return RedirectToAction("EmailConfirm", "Mail");
+            }
+            TempData["isAccountActive"] = "Could not found any account";
+            return RedirectToAction("EmailConfirm", "Mail");
+        }
+
         public ActionResult EmailConfirm()
         {  //email dogrulama bilgisi icin
             return View();

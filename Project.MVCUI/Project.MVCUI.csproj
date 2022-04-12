@@ -127,6 +127,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication\AdminAuthentication.cs" />
+    <Compile Include="Authentication\ContentAdminAuthentication.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -175,11 +177,19 @@
     <Content Include="Views\AppUser\Register.cshtml" />
     <Content Include="Views\Mail\EmailConfirm.cshtml" />
     <Content Include="Views\AppUser\Login.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\AdminRegister.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
+    <Content Include="Views\Admin\AdminMainPage.cshtml" />
+    <Content Include="Views\Admin\AdminAdd.cshtml" />
+    <Content Include="Views\Admin\AdminList.cshtml" />
+    <Content Include="Views\Admin\AdminUpdate.cshtml" />
+    <Content Include="Views\Shared\_AdminCrudLayout.cshtml" />
+    <Content Include="Views\Admin\ContentAdminPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

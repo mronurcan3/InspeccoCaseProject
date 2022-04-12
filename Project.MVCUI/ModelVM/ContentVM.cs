@@ -13,5 +13,8 @@ namespace Project.MVCUI.ModelVM
         public List<Content> Contents { get; set; }
 
         public AppUser AppUser { get; set; }
+        public List<AppUser> AppUsers { get; set; }
+
+        public Company Company { get; set; }
     }
 }

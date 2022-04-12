@@ -21,13 +21,16 @@ namespace Project.Entities.Models
 
         public Guid ActivationCode { get; set; }
 
+        public int? CompanyID { get; set; }
+
 
 
 
         //Relational Properties
 
-        public UserProfile UserProfile { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
 
-        public List<Content> Contents { get; set; }
+        public virtual List<Content> Contents { get; set; }
+        public virtual Company Company { get; set; }
     }
 }

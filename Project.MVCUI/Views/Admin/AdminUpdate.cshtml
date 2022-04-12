@@ -1,0 +1,70 @@
+﻿@model ContentVM 
+@{
+
+    Layout = "~/Views/Shared/_AdminCrudLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AdminUpdate", "Admin", FormMethod.Post))
+{
+    <div class="mt-16 bg-sky-400 text-center" style="width:300px;height:680px">
+
+        <div class="grid grid-raw-2">
+            <label class=" text-xl text-teal-700">User Name</label>
+            @Html.HiddenFor(x => x.AppUser.ID)
+            @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control" })
+        </div>
+
+        <div class="grid grid-raw-2 mt-4">
+            <label class=" text-xl text-teal-700">Password</label>
+            @Html.TextBoxFor(x => x.AppUser.Password, new { @class = "form-control" })
+        </div>
+
+        <div class="grid grid-raw-2">
+            <label class=" text-xl text-teal-700">First Name</label>
+            @Html.TextBoxFor(x => x.AppUser.UserProfile.FirstName, new { @class = "form-control" })
+        </div>
+
+        <div class="grid grid-raw-2 mt-4">
+            <label class=" text-xl text-teal-700">Last Name</label>
+            @Html.TextBoxFor(x => x.AppUser.UserProfile.LastName, new { @class = "form-control" })
+        </div>
+
+
+        <div class="grid grid-raw-2 mt-4">
+            <label class=" text-xl text-teal-700">Email</label>
+            @Html.TextBoxFor(x => x.AppUser.UserProfile.EMail, new { @class = "form-control" })
+        </div>
+
+
+
+        <div class="grid grid-raw-2 mt-4">
+            <div>
+                <input type="radio" name="adminType" value="Admin">
+                <label>Admin</label>
+            </div>
+            <div>
+                <input checked="checked" type="radio" name="adminType" value="ContentAdmin">
+                <label>Content Admin</label>
+            </div>
+
+
+        </div>
+
+
+        <div class="">
+            <button class=" mt-2 bg-myblue-200 hover:bg-myorange text-mywhite font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline" style="height:50px;width:200px">
+                Update Admin
+            </button>
+        </div>
+
+
+
+
+
+
+
+    </div>
+}
+
+

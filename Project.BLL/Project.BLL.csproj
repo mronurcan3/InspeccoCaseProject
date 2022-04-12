@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="DesignPatterns\GenericRepository\BaseRep\BaseRepository.cs" />
     <Compile Include="DesignPatterns\GenericRepository\ConRep\AppUserRepository.cs" />
+    <Compile Include="DesignPatterns\GenericRepository\ConRep\CompanyRepository.cs" />
     <Compile Include="DesignPatterns\GenericRepository\ConRep\ContentRepository.cs" />
     <Compile Include="DesignPatterns\GenericRepository\ConRep\UserProfileRepository.cs" />
     <Compile Include="DesignPatterns\GenericRepository\IntRep\IRepository.cs" />

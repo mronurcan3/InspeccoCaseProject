@@ -38,15 +38,28 @@ namespace Project.DAL.StrategyPattern
 
                 UserName = "alisya1",
                 Password = "123",
-                Role = Entities.Enums.UserRole.ContentAdmin,
+                Role = Entities.Enums.UserRole.Admin,
                 UserProfile = userProfile1,
                 Contents = new List<Content> { content}
                 
             };
 
+            Company company1 = new Company()
+            {
+                Name = "THE YILDIRIMLAR",
+                AppUsers = new List<AppUser>()
+                {
+                    appUser1,
+
+                },
+
+                Contents = new List<Content> { content }
+            };
+
             context.AppUsers.Add(appUser1);
             context.UserProfiles.Add(userProfile1);
             context.Contents.Add(content);
+            context.Companies.Add(company1);
 
             context.SaveChanges();
 

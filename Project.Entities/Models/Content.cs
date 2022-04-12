@@ -14,10 +14,16 @@ namespace Project.Entities.Models
 
         public int Likes { get; set; }
 
+        public int AppUserID { get; set; }
+
+        public int CompanyID { get; set; }
+
 
 
         //Relational Properties
 
-        public AppUser AppUser { get; set; }
+        public virtual AppUser AppUser { get; set; }
+
+        public virtual Company Company { get; set; }
     }
 }

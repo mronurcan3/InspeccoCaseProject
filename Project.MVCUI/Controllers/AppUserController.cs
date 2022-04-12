@@ -53,12 +53,12 @@ namespace Project.MVCUI.Controllers
         {
             if (_appUser.Any(x => x.UserName == userName))
             {
-                ViewBag.ZatenVar = "Kullanıcı ismi daha önce alınmıs";
+                ViewBag.ZatenVar = "Username already taken";
                 return View();
             }
             else if (_userProfile.Any(x => x.EMail == email))
             {
-                ViewBag.ZatenVar = "Email zaten kayıtlı";
+                ViewBag.ZatenVar = "Email already taken";
                 return View();
             }
             
@@ -80,7 +80,9 @@ namespace Project.MVCUI.Controllers
 
             string emailWillSend = "Congratulations, your account has been successfully created. To activate your account https://localhost:44312/Mail/Activation/" + appUser.ActivationCode + " you can click the link";
 
-            MailService.Send(appUser.UserProfile.EMail, body: emailWillSend, subject: "Hesap aktivasyon!!!");
+            MailService.Send(appUser.UserProfile.EMail, body: emailWillSend, subject: "Acount Actiobation!!!");
+
+            TempData["EmailCheck"] = "please check your email";
 
             return RedirectToAction("EmailConfirm", "Mail");
 

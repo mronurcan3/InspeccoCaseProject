@@ -25,10 +25,12 @@ namespace Project.DAL.Context
             modelBuilder.Configurations.Add(new AppUserMap());
             modelBuilder.Configurations.Add(new UserProfileMap());
             modelBuilder.Configurations.Add(new ContentMap());
+            modelBuilder.Configurations.Add(new CompanyMap());
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Content> Contents { get; set; }
+        public DbSet<Company> Companies { get; set; }
     }
 }

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="~/Images/FavIcon.ico.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <style>
+        .userIcon:hover .userIcon-Content {
+            display: block;
+        }
+
+        .userIcon-Content {
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <script>
+
+        tailwind.config = {
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        myorange: '#06b6d4',
+                        myblue: {
+                            100: '#0f172a',
+                            200: '#1e3a8a',
+                            300: '#9CC4E4',
+                            400: '#343838',
+                            500: '#00DFFC',
+                            600: '#005F6B'
+
+                        },
+
+                        mywhite: '#E9F2F9',
+
+                        myred: '#99173C',
+
+                        mygrey: {
+
+                            100: '#0f172a',
+                            200: '#1e293b',
+                        },
+
+                        myyellow: {
+
+                            100: '#06b6d4',
+                            200: '#22d3ee',
+                        }
+
+
+                    },
+
+                    fontFamily: {
+
+                        inter: ['Inter', 'sans-serif']
+
+
+                    },
+
+                    fontSize: {
+
+                        xs: '0.8125rem'
+
+
+                    },
+
+                    spacing: {
+
+                        '100': '36rem'
+                    }
+
+
+                }
+
+            }
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

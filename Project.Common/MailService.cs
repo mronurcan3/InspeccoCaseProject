@@ -8,17 +8,25 @@ using System.Threading.Tasks;
 
 namespace Project.Common
 {
+    /// <summary>
+    /// Handle send/receive email requirements
+    /// </summary>
     public static class MailService
     {
-        public static void Send(string receiver, string password = "MRnobody1905$$.US", string body = "Test mesajıdır", string subject = "Email Testi", string sender = "anketler3@gmail.com")
+        /// <summary>
+        /// Send email using smtp client 
+        /// </summary>
+        /// <param name="receiver"></param>
+        /// <param name="password"></param>
+        /// <param name="body"></param>
+        /// <param name="subject"></param>
+        /// <param name="sender"></param>
+        public static void Send(string receiver, string password = "MRnobody1905$$.US", string body = "Test Message", string subject = "Test Email", string sender = "anketler3@gmail.com")
         {
             MailAddress senderEmail = new MailAddress(sender);
             MailAddress receiverEmail = new MailAddress(receiver);
 
-            //Bizim Email işlemlerimiz SMTP'ye göre yapılır...
-            //Kullandığınız gmail hesabının başka uygulamalar tarafından mesaj gönderme özelliğini açmalısınız...
-
-            SmtpClient smtp = new SmtpClient()
+            using (SmtpClient smtp = new SmtpClient()
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
@@ -27,7 +35,7 @@ namespace Project.Common
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(senderEmail.Address, password)
 
-            };
+            })
 
             using (MailMessage message = new MailMessage(senderEmail, receiverEmail)
             {

@@ -1,0 +1,32 @@
+﻿@model ContentVM
+@{
+    ViewBag.Title = "AdminList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@foreach (AppUser item in Model.AppUsers)
+{
+<div class="flex flex-row">
+
+    <div class="flex flex-row">
+        <label>User Name</label>
+
+        <label class="ml-2">@item.UserName</label>
+    </div>
+
+    <div class="flex flex-row ml-2 mr-2">
+        <label>User Role</label>
+
+        <label class="ml-2">@item.Role</label>
+    </div>
+
+    
+    @Html.ActionLink("Update", "AdminUpdate", "Admin", new { id = item.ID }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Delete", "AdminDelete", "Admin", new { id = item.ID }, new { @class = "btn btn-danger" })
+
+
+</div>
+
+}
+
+

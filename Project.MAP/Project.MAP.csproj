@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Options\AppUserMap.cs" />
     <Compile Include="Options\BaseMap.cs" />
+    <Compile Include="Options\CompanyMap.cs" />
     <Compile Include="Options\ContentMap.cs" />
     <Compile Include="Options\UserProfileMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
